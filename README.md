@@ -1,4 +1,4 @@
-<img src="logo.svg" alt="AtlasPVE" width="72" height="72" />
+<img src="logo.png" alt="AtlasPVE" width="96" height="96" />
 
 # AtlasPVE
 
