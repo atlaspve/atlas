@@ -1,3 +1,5 @@
+<img src="logo.svg" alt="AtlasPVE" width="72" height="72" />
+
 # AtlasPVE
 
 **The safe operations layer for Proxmox.**
