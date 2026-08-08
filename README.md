@@ -34,7 +34,7 @@ Reach an in-VM terminal, file browser and live metrics with no SSH and no open p
 Create and manage KVM virtual machines and LXC containers with wizards for the common setups.
 
 ### Backups and rollback
-A snapshot is taken before changes, so a risky operation always has a way back.
+Before an update runs, a snapshot is taken, so a kernel or package change has a way back. Backup jobs, snapshots and restores are managed from the same interface.
 
 ### Live monitoring
 Watch hosts, virtual machines and services live, with the metrics that matter for day to day operations.
@@ -46,13 +46,13 @@ Atlas runs on your Proxmox host. Nothing connects in from outside, and the produ
 ## Frequently asked questions
 
 ### Is Atlas open source?
-The agent that runs with root privileges on the server is open under AGPL, so what it does can be read and audited. The interface and product layer are offered under a commercial license, a deliberate choice that keeps Atlas funded and maintained.
+Partly, and deliberately so. The agent that runs with root privileges on the host is AGPL licensed and installs as readable source under /opt/atlas/agent, so it can be inspected on the machine it runs on. This repository carries the project overview, not that source. The analysis engine and the interface are proprietary, a choice that keeps Atlas funded and maintained.
 
 ### Does Atlas replace the Proxmox web interface?
 No. Atlas runs alongside Proxmox and adds a layer of safety and clarity. It keeps Proxmox as Proxmox rather than replacing it.
 
 ### Can Atlas run offline?
-Yes. Atlas runs offline and continues to operate locally on the Proxmox host. The internet is used only to fetch updates and the catalog. Without it, the installed version keeps working fully.
+Yes. Atlas runs offline and continues to operate locally on the Proxmox host. The internet is used for updates, the application catalog, license checks and, if you enable it, notifications to your account. Without it, the installed version keeps working fully.
 
 ### Does Proxmox data pass through Atlas servers?
 No. The Atlas management layer runs inside your own infrastructure. VM, storage and network content is not sent to Atlas servers.
