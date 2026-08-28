@@ -48,6 +48,8 @@ Atlas runs on your Proxmox host. Nothing connects in from outside, and the produ
 ### Is Atlas open source?
 Partly, and deliberately so. The agent that runs with root privileges on the host is AGPL licensed and installs as readable source under /opt/atlas/agent, so it can be inspected on the machine it runs on. This repository carries the project overview, not that source. The analysis engine and the interface are proprietary, a choice that keeps Atlas funded and maintained.
 
+Why not publish it here as well? The reason is not only commercial. Atlas runs inside other people's infrastructure, and publishing every line also publishes a map for anyone scanning for a way in. In an age of automated scanning that risk lands on the customer, not on the vendor. Reading the code on the machine where it runs gives the same assurance without handing that map to everyone at once. Responsibility does not move either way: a hole in Atlas is ours, and closing it is ours.
+
 ### Does Atlas replace the Proxmox web interface?
 No. Atlas runs alongside Proxmox and adds a layer of safety and clarity. It keeps Proxmox as Proxmox rather than replacing it.
 
