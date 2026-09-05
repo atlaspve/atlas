@@ -50,6 +50,10 @@ Partly, and deliberately so. The agent that runs with root privileges on the hos
 
 Why not publish it here as well? The reason is not only commercial. Atlas runs inside other people's infrastructure, and publishing every line also publishes a map for anyone scanning for a way in. In an age of automated scanning that risk lands on the customer, not on the vendor. Reading the code on the machine where it runs gives the same assurance without handing that map to everyone at once. Responsibility does not move either way: a hole in Atlas is ours, and closing it is ours.
 
+### The agent runs as root. What limits the damage?
+
+The agent needs root because most of what it does sits below the Proxmox API: apt, kernel, bootloader, mount, zpool, passthrough. Being open source does not offset that on its own, so the separation is architectural rather than textual. The product and analysis layer does not run as root; it runs under its own user with service level restrictions, reachable only locally, and it refuses to start if launched as root. Atlas does not invent its own authorization; the user's real Proxmox permissions are read at login, every request is checked in one place before routing, and if no rule matches a write falls to the strictest bar. Commands never go through a shell, arguments are passed separately. Privileged actions are written to an audit log. Guests are reached over the guest agent socket rather than SSH, so no port is opened and no password is left inside the guest.
+
 ### Does Atlas replace the Proxmox web interface?
 No. Atlas runs alongside Proxmox and adds a layer of safety and clarity. It keeps Proxmox as Proxmox rather than replacing it.
 
